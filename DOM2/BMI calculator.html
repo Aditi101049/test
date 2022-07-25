@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Check your BMI</h1>
+        <p>Enter your weight and height below to check your BMI results</p>
+        <p>Put your weight in here(KG)</p>
+        <input type="number" id="weight">
+        <p>And your height in here(CM)</p>
+        <input type="number" id="height">
+        <button id="submit">Calculate BMI</button>
+        <h1 id="result"></h1>
+    </div>
+    
+</body>
+<script>
+    var height=document.querySelector("#height")
+    var weight=document.querySelector("#weight")
+    var result=document.querySelector("#result")
+   var sumbit=document.querySelector("#submit");
+   
+   function calculatorbmi(){
+      var weightValue=Number(weight.value);
+      var heightValue=Number(height.value)/100;
+var bmi=(weightValue)/(heightValue*heightValue);
+var resultValue="";
+        var bmi=(weight/((height*height)))
+
+        if(bmi<=18.4){
+            resultValue="underweight";
+
+        }else if (bmi>=18.5 && bmi<=24.9 ){
+            resultValue="Normal weight";
+        }else if
+           ( bmi>=25 && bmi <=29.9){
+               resultValue="Overweight"
+           }else{
+               resultValue="Obese";
+           }
+           result.textContent="My bmi:-"+ resultValue;
+        
+   }
+  submit.addEventListener("click",calculatorbmi)
+</script>
+</html>

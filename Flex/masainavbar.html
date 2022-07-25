@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <style>
+        #navbar{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+        }
+        #navbar>div{
+display: flex;
+justify-content: center;
+align-items: center;
+/* font-size: 14px; */
+        }
+        #navbar >div:last-child{
+            width: 70%;
+            height: 100%;
+            display: flex;
+            /* justify-content: space-around; */
+            /* padding-left: 200px; */
+            justify-content: space-evenly;
+            padding-right: 30px;
+            
+        }
+        #navbar>div:first-child{
+            width: 20%;
+            height: 100%;
+            margin: auto;
+        
+        }
+        P+div{
+            display: flex;
+            background-color: #f2fdff;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 20px;
+            border-radius: 5px;
+        }
+        button{
+            border: 1px solid red;
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px;
+            color: red;
+        }
+        p+div>img{
+            width:20px;
+            height: 20px;
+        }
+        select{
+            border: none;
+        }
+     
+    </style>
+</head>
+<body>
+<div id="navbar">
+    <div>
+        <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="masai-logo">
+    </div>
+    <div>
+        <select><option value="">COURSES</option></select>
+        <p>FEES & ISA</p>
+        <p>ABOUT US</p>
+        <p>HIRE FROM US</p>
+        <p>FAQ</p>
+        <p>EVENTS</p>
+        <div>
+            <p>REFER & EARN</p>
+            <img src="https://www.masaischool.com/img/referral/hand.png" >
+        
+        </div>
+        <button>LOGIN</button>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <input type="text" name="" id="name" placeholder="Enter Name"><br>
+        <input type="number" name="" id="age" placeholder="Enter Age"><br>
+        <select name="" id="gen">
+            <option value="Male">Male</option>
+            <option value="Female">female</option>
+        </select><br>
+        <input type="email" name="" id="mail" placeholder="Enter Mail"><br>
+        <input type="number" name="" id="num" placeholder="Enter Number"><br>
+        <input type="submit" name="" id="">
+    </form>
+
+</body>
+</html>
+
+<script>
+
+    document.querySelector("form").addEventListener("submit", onClick)
+
+    let array = []
+
+    function onClick(){
+        event.preventDefault()
+        arrObj  = {
+            name : document.querySelector("#name").value,
+            age : document.querySelector("#age").value,
+            gender : document.querySelector("#gen").value,
+            email : document.querySelector("#mail").value,
+            number : document.querySelector("#num").value
+        }
+
+        array.push(arrObj)
+        console.log(array);
+        localStorage.setItem("queDatas", JSON.stringify(array))
+
+    }
+
+</script>
+

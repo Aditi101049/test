@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Weather App</title>
+    <style>
+        *{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.future-forecast{
+   
+    bottom: 0;
+    display: flex;
+    color:white;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 10%; */
+   
+    height: auto;
+    
+}
+
+.future-forecast .today{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding:15px;
+    padding-right: 40px;
+    border-radius: 10px;
+    background: rgba(198, 13, 211, 0.2);
+    
+}
+
+.future-forecast .today .day{
+    padding: 5px 15px;
+    background: #3c3c44;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.future-forecast .today .temp{
+    font-size: 18px;
+    padding-top: 15px;
+    
+}
+
+.future-forecast .weather-forecast{
+    display: flex;
+   
+}
+
+.weather-forecast .weather-forecast-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(198, 13, 211, 0.2)
+}
+
+.weather-forecast .weather-forecast-item .day{
+    padding: 5px 15px;
+    background: #3C3C44;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.weather-forecast .weather-forecast-item .temp{
+    font-weight: 100;
+    font-size: 12px;
+}
+
+
+@media only screen and  (max-width:730px){
+    
+    .container{
+        padding: 20px;
+    }
+    
+    .future-forecast{
+        justify-content: start;
+        align-items: none;
+        overflow-y: scroll;
+    }
+
+    .future-forecast .today .temp{
+        font-size: 16px;
+    }
+
+    .date-container .time{
+        font-size: 50px;
+    }
+
+    .date-container #am-pm{
+        font-size: 20px;
+    }
+
+    .date-container .date{
+        font-size: 20px;
+    }
+
+    .place-container{
+        text-align: end;
+        margin-top: 15px;
+    }
+
+    .place-container .time-zone{
+        font-size: 20px;
+    }
+
+    .current-info .others{
+        padding: 12px;
+    }
+
+    .current-info .others .weather-item{
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (max-width: 1400px){
+    .future-forecast{
+        justify-content: start;
+        align-items: none;
+        overflow-x: scroll;
+    }
+}
+
+
+    body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHYpF5T3NgCWdzZiy9HfIR1IVV-vgHSr8EDw&usqp=CAU");
+    background-repeat: no-repeat;
+    background-size:cover;
+    font-family: 'Poppins', sans-serif;
+}
+h2{
+
+    font-weight: bold;
+    color: teal;
+}
+#cont{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 25%;
+    margin: auto;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+#container{
+    display: flex;
+    width: 95%;
+    margin: auto;
+    margin-top: 30PX;
+    gap: 30px;
+}
+
+    #info{
+      display: flex;
+        width: 30%;
+         margin: auto;
+        gap: 10px;
+        
+        
+    }
+     #city{
+        margin-top: 20%;
+        height: 30px;
+        width: 40%;
+        border-radius: 3px;
+        border: 0;
+        margin-left: -270px;
+     }
+        
+     #search{
+         margin-top: 20%;
+       height: 30px;
+        width: 23%;  
+        border-radius: 5px;
+        border: 0;
+        color: rgb(8, 8, 8);
+    } 
+    #search:hover{
+        background-color: rgb(14, 38, 39);
+        color: gold;
+    }
+    h1{ 
+        background-color:white;
+        font-size: 50px;
+        text-align: center;
+        color: teal;
+        margin-bottom: 10px;
+    }
+   
+
+    </style>
+</head>
+<body>
+    <h1>Check weather location</h1>
+    <div id="info">
+    <input type="text" id="city" placeholder="Enter your city"> <button id="search" onclick="showdata()">Search</button> </div>
+    <div id="container"> 
+        <div id="cont">
+    </div>
+    
+    <div>
+        <iframe 
+            width="600"
+            height="500"
+            id="gmap_canvas"
+            frameborder="0"
+            marginheigth="0"
+            marginwidth="0">
+        </iframe>
+    </div>
+    </div> 
+   
+
+    <div class="date-container">
+
+        </div>
+    <div class="date" id="date"> 
+                <div class="time-zone" id="time-zone"></div>
+                <div id="country" class="country"></div>   
+    </div>
+
+    <div class="future-forecast">
+        <div class="today" id="current-temp">
+           
+            
+            <div class="other">
+                <div class="day">Mon</div>
+                <!-- <div class="day">Monday</div> -->
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+        </div>
+
+        <div class="weather-forecast" id="weather-forecast">
+            <div class="weather-forecast-item">
+                <div class="day">Tue</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Wed</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Thur</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Fri</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sat</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+
+            <div class="weather-forecast-item">
+                <div class="day">Sun</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script >
+    const key="a13bc2e4392cbf9aa8d3e13fa7f1741d"
+async function showdata(){
+
+            let city =document.getElementById("city").value;
+            
+            let url =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
+            let x= await fetch(url)
+             let data = await x.json()
+            append(data); 
+            console.log(data)
+            
+    }
+    
+    function append(data){
+    
+                    let box=document.getElementById("cont");
+                    box.innerHTML=null; 
+                    let h2=document.createElement("h2");
+                        h2.innerText=data.name;
+                        
+
+                    let p1=document.createElement("p") 
+                    p1.innerText= `current temp: ${Math.round(data.main.temp-273)+"°C"}`;
+                    
+                    let p2=document.createElement("p")
+                    p2.innerText=`max temp : ${Math.round(data.main.temp_max-273)+"°C"}`;
+
+                    let p3=document.createElement("p") 
+                    p3.innerText= `Min temp: ${Math.round(data.main.temp-273)+"°C"}`;
+                    
+
+                    let p4=document.createElement("p")
+                    p4.innerText=`Wind Speed : ${data.wind.speed}`;
+
+                    let p5=document.createElement("p")
+                    p5.innerText=`Clouds : ${data.clouds.all}`;
+                    
+                    let p6=document.createElement("p") 
+                    p6.innerText=`Sunrise : ${data.sys.sunrise}`;
+                    
+                    let p7=document.createElement("p")
+                    p7.innerText=`Sunset : ${data.sys.sunset}`;
+
+                       
+ box.append(h2, p1, p2, p3, p4, p5, p6, p7);
+
+let iframe= document.getElementById('gmap_canvas');
+iframe.src= `https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+
+}
+
+function getLocation() {
+
+    navigator.geolocation.getCurrentPosition(success); }
+    function success(position) {
+    const latitude=position.coords.latitude; 
+    const longitude= position.coords.longitude;
+    console.log(latitude);
+    console.log(longitude);
+
+} 
+
+getLocation()
+
+    
+    const timeEl = document.getElementById('time');
+        const dateEl = document.getElementById('date');
+        const currentWeatherItemsEl = document.getElementById('current-weather-items');
+        const weatherForecastEl = document.getElementById('weather-forecast');
+        const currentTempEl = document.getElementById('current-temp');
+        
+        
+        const days = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        
+        
+        
+        const apikey ='a13bc2e4392cbf9aa8d3e13fa7f1741d'
+        
+        
+        getWeatherData()
+        function getWeatherData () {
+            navigator.geolocation.getCurrentPosition((success) => {
+                
+                let {latitude, longitude } = success.coords;
+        
+                fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${apikey}`).then(res => res.json()).then(data => {
+        
+                console.log(data)
+                showWeatherData(data);
+                })
+        
+            })
+        }
+        
+        function showWeatherData (data){
+            let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
+        
+            let otherDayForcast = ''
+            data.daily.forEach((day, idx) => {
+                if(idx == 0){
+                    currentTempEl.innerHTML = `
+                    <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
+                    <div class="other">
+                        <div class="day">${window.moment(day.dt*1000).format('dddd')}</div>
+                        <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                        <div class="temp">Day - ${day.temp.day}&#176;C</div>
+                    </div>
+                    
+                    `
+                }else{
+                    otherDayForcast += `
+                    <div class="weather-forecast-item">
+                        <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                        <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
+                        <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                        <div class="temp">Day - ${day.temp.day}&#176;C</div>
+                    </div>
+                    
+                    `
+                }
+            })
+        
+        
+            weatherForecastEl.innerHTML = otherDayForcast;
+        }
+        </script>
+</body>
+</html>

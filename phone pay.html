@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+var img=document.createElement("img")
+
+
+
+    function status(){
+        // return true;
+        return false;
+    }
+
+var pp=new Promise(function(resolve,reject){
+   // var time=(Math.random()*10000)+3000;
+   var yn=status()
+   img.src= "https://cdn.dribbble.com/users/447957/screenshots/6899626/payment-animation.gif"
+   document.querySelector("body").append(img)
+   setTimeout(function(){
+   if(yn){
+            resolve("succesful")
+        }
+        else{
+            reject("not succesful")
+        }
+    },4000)
+})
+
+
+
+async function check(){
+    try{
+        var res=await pp;
+        console.log(res)
+         img.src=""
+        document.querySelector("body").append(img)
+    }
+    catch(err){
+        console.log(err)
+        img.src="yahan payment not done ki image"
+       document.querySelector("body").append(img)  
+    }
+
+}
+check()
+
+
+
+
+async function content(){
+    try{
+        let res=await payment;
+        console.log(res);
+        image.src="https://fcs3pub.s3.amazonaws.com/photo-book/images/payment/success.gif"
+    }
+    catch (err){
+        console.log(err);
+        image.src="https://media1.giphy.com/media/frTCmCyOReJC2AxN7A/giphy.gif"
+    }
+}
+content()
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://miro.medium.com/max/978/0*DSPgbPGswUlTY_Ex.gif" id="loding_img">
+</body>
+</html>
+<script>
+    function bank(){
+        // logic
+        return// true 
+        false;
+    }
+    let payment=new Promise(function(resolve,reject){
+        let pin=bank();
+        setTimeout(function(){
+            if(pin){
+            resolve("Payment successful")
+        }else{
+            reject("Try again later")
+        }
+        },3000)
+    })
+       // handlind the promise
+       //.then.catch
+       //async await
+let image=document.getElementById("loding_img")
+
+//        payment.then(function(resolve){
+//         console.log(resolve);
+//         image.src="https://fcs3pub.s3.amazonaws.com/photo-book/images/payment/success.gif"
+//        });
+// payment.catch(function(reject)
+// { 
+//     console.log(reject);
+//     image.src="https://media1.giphy.com/media/frTCmCyOReJC2AxN7A/giphy.gif"
+// });
+
+
+
+async function content(){
+    try{
+        let res=await payment;
+        console.log(res);
+        image.src="https://fcs3pub.s3.amazonaws.com/photo-book/images/payment/success.gif"
+    }
+    catch (err){
+        console.log(err);
+        image.src="https://media1.giphy.com/media/frTCmCyOReJC2AxN7A/giphy.gif"
+    }
+}
+//try{
+//resolve
+//}catch(err){
+//Reject
+//}
+content();
+   
+    // console.log(payment);
+
+</script>

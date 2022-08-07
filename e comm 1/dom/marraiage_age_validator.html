@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Values</title>
+</head>
+<body>
+	<input type="number" id="DOB">
+	<select id="gender">
+		<option value="">--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+    <button onclick ="checkage()">Submit</button>
+   <p id="result">Show result here</p> 
+	<!-- <input type="text" name="email" id="email">
+	<input type="text" name="mobile" id="mobile"> -->
+	<hr>
+	<!-- <button onclick="showName()">DOD</button>
+	<button onclick="showGender()">GENDER</button> -->
+	<!-- <button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button> -->
+	<script type="text/javascript">
+		// function showName() {
+		// 	// Show the alert of the filled name
+        //     var fillname = document.getElementById("DOB").value
+        //     alert(fillname)
+		// }
+
+		// function showGender() {
+		// 	// Show the alert of the selected Gender
+        //     var gender = document.getElementById("gender").value
+        //     alert(gender)
+		// }
+        function checkage(){
+        // var age = document.getElementById("DOB").value;
+        // alert(age)
+        // var gender = document.getElementById("gender").value;
+        // alert(gender)
+        var age = document.getElementById("DOB").value;
+        // var gender = document.getElementById("gender").value;
+        if(age =>18){
+            document.getElementById("result").innerText = ("You can marry");
+            document.getElementById("result").value
+            alert("You can marry");
+        }
+        else{
+            (age < 18)
+            document.getElementById("result").innerText = ("You can't marry");
+            document.getElementById("result").value
+            alert("You can't marry");
+            }
+        }
+        
+        
+        // var 
+        // if(age >18){
+        //     document.getElementById("result").innerText=("You can drive in India!");
+        // }else if(age <18){
+        //     document.getElementById("result").innerText=("You can't drive in India!");
+        // }else{
+        //     document.getElementById("result").innerText=("You are just old enough to drive in India!");
+        // }
+    
+	</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping card</title>
+    <style></style>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+    <script>
+document.querySelector("form").addEventListener("submit",myfunction);
+
+function myfunction(){
+    event.preventDefault();
+
+    var avtar = document.querySelector("#image").value 
+
+    var name = document.querySelector("#name").value 
+
+    var batch = document.querySelector("#batch").value
+    
+    var dsa = document.querySelector("#dsa").value 
+
+    var skillathon = document.querySelector("#cs").value 
+
+    var coding = document.querySelector("#coding").value 
+
+
+    console.log(avtar,name,batch,dsa,skillathon,coding);
+
+    var tr = document.createElement("tr");
+
+    var td1 = document.createElement("td");
+    var student_avtar=document.createElement("img")
+    student_avtar.setAttribute("src",avtar)
+    td1.append(student_avtar)
+
+    var td2 = document.createElement("td");
+    td2.innerText = name
+
+    var td3 = document.createElement("td");
+    td2.innerText = batch
+
+
+    var td4 = document.createElement("td");
+    td4.innerText = dsa
+
+
+    var td5 = document.createElement("td");
+    td5.innerText = skillathon
+
+
+    var td6 = document.createElement("td");
+    td6.innerText = coding
+
+    var obtainMarks = Number(dsa) + Number(skillathon) + Number(coding)
+    var persent = (obtainMarks /30)*100;
+    console.log(persent)
+
+
+    var td7 = document.createElement("td");
+    td7.innerText = persent
+    
+
+
+    var td8 = document.createElement("td");
+    if(persent<50){
+        td8.innerText="async"
+        td8.style.backgroundColor="red"
+    }else {
+        td8.innerText="regular"
+        td8.style.backgroundColor="green"
+    }
+    
+    var td9 = document.createElement("td");
+        td9.innerText="Delete";
+        td9.style.backgroundColor="red";
+        td9.style.cursor="pointer";
+        td9.addEventListener("click", deleterow);
+
+    tr.append(td1,td2,td3,td4,td5,td6,td7,td8,td9)
+
+    document.querySelector("tbody").append(tr);
+
+}
+function deleterow(){
+   console.log(event.target.parentNode.remove())
+}
+</script>

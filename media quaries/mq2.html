@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQ LAYOUT - 1</title>
+    <style>
+    #nav{
+        width: 100%;
+        height: 200px;
+        background-color: yellow;
+        
+        font-size: 40px;
+        
+    }
+    #container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 200px 200px;
+        gap: 30px;
+        margin: top -10px;;
+        grid-template-areas: 
+        "nav nav"
+        "b1 b2";
+    }
+#container > div{
+    display: flex;
+    font-size: 50px;
+    
+     }
+#container > div:nth-child(1){
+background-color: red;
+grid-area: b1;
+}
+#container > div:nth-child(2){
+background-color: green;
+grid-area: b2;
+}
+
+
+@media all and (min-width: 100px) and (max-width: 450px){
+   #container {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat( 3, 200px); 
+      
+      grid-template-areas: 
+      "nav"
+      "b1"
+      "b2"
+      
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- <h1>Navigation</h1> -->
+    <div id="nav">Navigation
+    <div id="container">
+        <div>Left Box</div>
+        <div>Right Box</div>
+        <!-- <div>Box 3</div>
+        <div>Box 4</div> -->
+    </div>
+</div>
+</body>
+</html>

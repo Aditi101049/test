@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    st
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var buttonObj =  [
+{name : "primary",color:"white", bakgrondColor: "blue"},
+
+ {name : "Secondary" ,color: "white",bakgrondColor: "gray"},
+
+{name : "Success" ,color: "white",bakgrondColor: "green"},
+
+{name : "Denger" ,color: "white",bakgrondColor : "red"},
+
+{name : "Warning" ,color: "Black",bakgrondColor : "yellow"},
+
+{name : "Info" ,color: "white",bakgrondColor : "blue"},
+
+{name : "Light" ,color: "black",bakgrondColor: "white"},
+
+{name : "Dark" ,color: "white",bakgrondColor: "black"},
+
+{name : "link" ,color: "Blue",bakgrondColor : "white"}
+
+]
+
+buttonObj.forEach(function(ele){
+
+    var btn=document.createElement("button");
+    btn.innerText=ele.name;
+    btn.style.backgroundColor=ele.bakgrondColor;
+    btn.style.color=ele.color
+    document.querySelector("body").append(btn)
+})
+</script>

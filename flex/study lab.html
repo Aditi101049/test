@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            width: 100%;
+            height: auto;
+        }
+        #box{
+            /* border: 1px solid black; */
+            /* width:auto;
+            height: 60px; */
+            display: flex;
+
+        }
+        #card{
+            display: flex;
+            width: auto;
+        }
+        .card2{
+            display: grid;
+            width: 50%;
+            height: 300px;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(2,1fr);
+            gap: 20px;
+            
+        }
+        img{
+            border-radius: 100%;
+            flex-wrap: wrap;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="box">
+            <div>
+                <div class="b"></div>
+                <div class="b">Home</div>
+                <div class="b">About </div>
+                <div class="b">Course</div>
+                <div class="b">Instructors</div>
+                <div class="b">Blog</div>
+            <div class="b">Contact</div></div>
+
+            <div id="card">
+                <div class="card1">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <div class="card2">
+                <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHvNWP1RO3w30CcWbz0QtOqnPYsVr2QTDZqg&usqp=CAU"><h3>Top Quality Content</h3>
+                <p>A samll river named Duden flows by their place and supplies</p></div>
+                <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ4qEeUtnIE3bzFyn-2vHPuIi_heVnVr0dlHW7SULjmc22bntr7lJKDbcXD0sA1_ZWago&usqp=CAU"><h3>Top Quality Content</h3>
+                    <p>A samll river named Duden flows by their place and supplies</p></div>
+                <div><img src=""><h3>Top Quality Content</h3>
+                    <p>A samll river named Duden flows by their place and supplies</p></div>
+                <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3zTMqUrZDThkVSKauCg0YRUyupcPrhJaMyA&usqp=CAU"><h3>Top Quality Content</h3>
+                    <p>A samll river named Duden flows by their place and supplies</p></div>
+            </div></div>
+
+        </div>
+    </div>
+</body>
+</html>
